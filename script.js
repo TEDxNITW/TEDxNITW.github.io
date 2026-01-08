@@ -551,8 +551,23 @@ function handleNavState(scrollY) {
 // INFINITE REEL LOGIC
 // ===================================
 
+// Preload all reel images on page load for smooth transitions (especially on GitHub Pages)
+function preloadReelImages() {
+    if (!els.reelItems) return;
+    els.reelItems.forEach(item => {
+        const imgSrc = item.getAttribute('data-img');
+        if (imgSrc) {
+            const preloader = new Image();
+            preloader.src = imgSrc;
+        }
+    });
+}
+
 function initReel() {
     if (!els.reelList) return;
+
+    // Preload all reel images for smooth transitions
+    preloadReelImages();
 
     // Add Click Listeners
     if (els.reelUp) els.reelUp.addEventListener('click', () => cycleReel(-1));
@@ -636,13 +651,24 @@ function updateSpotlight(item) {
 
     if (els.spotlight.img.src.includes(img) && els.spotlight.quote.innerText === quote) return;
 
-    els.spotlight.img.style.opacity = 0;
-    setTimeout(() => {
+    // Preload image first, then swap
+    const preloader = new Image();
+    preloader.onload = function () {
+        els.spotlight.img.style.opacity = 0;
+        setTimeout(() => {
+            els.spotlight.img.src = img;
+            els.spotlight.quote.innerText = quote;
+            els.spotlight.author.innerText = author;
+            els.spotlight.img.style.opacity = 1;
+        }, 150);
+    };
+    preloader.onerror = function () {
+        // Fallback if preload fails - just swap anyway
         els.spotlight.img.src = img;
         els.spotlight.quote.innerText = quote;
         els.spotlight.author.innerText = author;
-        els.spotlight.img.style.opacity = 1;
-    }, 200);
+    };
+    preloader.src = img;
 }
 
 function startAutoPlay() {
