@@ -1,0 +1,2105 @@
+/* =====================================
+   TEDXNITW - MUSEUM / EDITORIAL EDITION
+   Minimalist, High-End, Strict Black & Red
+   ===================================== */
+
+/* CSS VARIABLES */
+:root {
+    /* Colors */
+    --black: #050505;
+    --black-soft: #111111;
+    --white: #ffffff;
+    --red-primary: #EB0028;
+    --gray-100: #f5f5f5;
+    --gray-300: #d4d4d4;
+    --gray-500: #737373;
+    --gray-800: #262626;
+    --gray-900: #171717;
+    --blueprint-bg: #0a0a12;
+
+    /* Spacing */
+    --container-width: 1400px;
+    --reel-item-height: 60px;
+    /* Base height for calc */
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'Courier New', monospace;
+
+    /* Transitions */
+    --transition-base: 0.3s ease-out;
+}
+
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.serif {
+    font-family: var(--font-heading);
+}
+
+.text-red {
+    color: var(--red-primary);
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 1px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.btn:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+.btn-primary {
+    background: var(--red-primary);
+    border-color: var(--red-primary);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--red-primary);
+}
+
+/* NAVIGATION */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: background 0.5s ease, padding 0.5s ease;
+}
+
+.main-nav.scrolled-nav {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 1rem 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+}
+
+.logo-ted {
+    color: var(--red-primary);
+}
+
+.logo-nitw {
+    color: var(--white);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    opacity: 1;
+    color: var(--red-primary);
+}
+
+/* Active State for Link Buttons (Contact Page Fix) */
+.nav-links .btn.active {
+    background: transparent !important;
+    color: var(--red-primary) !important;
+    border-color: var(--red-primary) !important;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* =====================================
+   HERO: THE PASSAGE
+   ===================================== */
+.passage-container {
+    height: 180vh;
+    /* Matches zoom scroll distance (0.8vh) so content appears when zoom ends */
+    position: relative;
+    z-index: 10;
+}
+
+.gate-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.gate-text-layer {
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.gate-logo {
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gate-theme {
+    font-size: clamp(6rem, 12vw, 12rem);
+    font-family: var(--font-heading);
+    font-style: italic;
+    line-height: 0.8;
+    color: var(--white);
+    margin-top: -1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================================
+   SECTIONS & GRID
+   ===================================== */
+.section-padding {
+    padding: 8rem 0;
+}
+
+.about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.red-line {
+    width: 60px;
+    height: 2px;
+    background: var(--red-primary);
+    margin: 1.5rem 0;
+}
+
+/* Campus Slider */
+.slider-arrow:hover {
+    background: var(--red-primary);
+    border-color: var(--red-primary) !important;
+}
+
+/* =====================================
+   GLOBAL GRAYSCALE & HOVER EFFECTS
+   ===================================== */
+
+/* 1. Base State: 100% Grayscale */
+.grayscale-hover,
+img.grayscale-hover,
+.orbit-image,
+/* Legacy of Thought (Spotlight) */
+.archive-card-img,
+/* Speakers Page (Reference) */
+.reel-item img,
+.drawer-hero-img,
+#sliderTrack img {
+    /* Spirit of Warangal (Slider) */
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    /* Safari support */
+    transition: filter 0.4s ease, transform 0.4s ease;
+    cursor: pointer;
+    /* UX hint that it's interactive */
+}
+
+/* 2. Hover State: Full Color */
+.grayscale-hover:hover,
+img.grayscale-hover:hover,
+.orbit-image:hover,
+.archive-card:hover .archive-card-img,
+.orbit-spotlight:hover .orbit-image,
+/* Legacy of Thought Parent Hover */
+#sliderTrack:hover img,
+/* Spirit of Warangal Parent Hover */
+.reel-item:hover img,
+.drawer-hero-img:hover,
+#sliderTrack img:hover {
+    filter: grayscale(0%) contrast(1.1);
+    -webkit-filter: grayscale(0%) contrast(1.1);
+}
+
+.about-video-container {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--black-soft);
+    overflow: hidden;
+}
+
+.about-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.7;
+}
+
+.video-caption {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    letter-spacing: 0.1em;
+}
+
+/* =====================================
+   ORBIT SECTION / ACCORDION
+   ===================================== */
+/* (Reel Styles Logic remains same as previous steps) */
+.orbit-section {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+}
+
+.orbit-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.orbit-spotlight {
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.orbit-image {
+    width: 100%;
+    max-height: 70vh;
+    object-fit: cover;
+    /* filter: grayscale(100%) contrast(1.1);  <-- DELETE THIS LINE */
+    margin-bottom: 2rem;
+    transition: filter 0.4s ease;
+}
+
+/* .orbit-image:hover {
+    filter: grayscale(0%) contrast(1.1);
+} */
+
+.orbit-quote {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-style: italic;
+    line-height: 1.2;
+    color: var(--white);
+}
+
+.orbit-author {
+    margin-top: 1rem;
+    color: var(--red-primary);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+}
+
+.reel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reel-viewport {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.reel-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reel-item {
+    height: var(--reel-item-height);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: var(--gray-600);
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reel-indicator {
+    width: 3px;
+    height: 100%;
+    background: transparent;
+    transition: background 0.3s;
+}
+
+.reel-item.active {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    opacity: 1;
+}
+
+.reel-item.active .reel-indicator {
+    background: var(--red-primary);
+}
+
+.reel-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--gray-500);
+}
+
+.reel-btn {
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 1.5rem;
+}
+
+.reel-btn:hover {
+    color: var(--red-primary);
+}
+
+
+/* =====================================
+   THEME, MANIFESTO, MAP
+   ===================================== */
+.theme-section {
+    position: relative;
+    background: #080808;
+    padding: 10rem 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hollow-text-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20vw;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.manifesto-hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.manifesto-heading {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--white);
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.manifesto-meta {
+    font-family: var(--font-mono);
+    color: var(--red-primary);
+    letter-spacing: 0.15em;
+    font-size: 0.9rem;
+}
+
+.scroll-line-guide {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 80px;
+    background: var(--red-primary);
+    transform: translateX(-50%);
+}
+
+.dual-narrative {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.narrative-half {
+    position: relative;
+    padding: 6rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.narrative-left {
+    background-color: var(--black-soft);
+    border-right: 1px solid var(--gray-900);
+}
+
+.narrative-right {
+    background-color: var(--black);
+}
+
+.bg-institute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    filter: grayscale(100%) contrast(1.2);
+    z-index: 0;
+}
+
+.frosted-card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 500px;
+}
+
+.narrative-title {
+    font-family: var(--font-mono);
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.narrative-text {
+    font-size: 1.1rem;
+    color: var(--gray-300);
+    line-height: 1.8;
+}
+
+.cohort-text {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    line-height: 1.6;
+    color: var(--white);
+}
+
+.pillars-section {
+    padding: 8rem 0;
+    border-top: 1px solid var(--gray-900);
+    border-bottom: 1px solid var(--gray-900);
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pillar-col {
+    padding: 3rem 2rem;
+    border-right: 1px solid var(--gray-900);
+    text-align: center;
+}
+
+.pillar-col:last-child {
+    border-right: none;
+}
+
+.pillar-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--red-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1;
+}
+
+.pillar-title {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.pillar-desc {
+    font-size: 0.95rem;
+    color: var(--gray-500);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.blueprint-section {
+    background: var(--blueprint-bg);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* =====================================
+   THE TRANSMISSION (BLUEPRINT REDESIGN)
+   ===================================== */
+.blueprint-section {
+    background: var(--blueprint-bg);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.blueprint-map-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--black);
+    /* Base background */
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+/* 1. Background Grid (z-index: 1) */
+.blueprint-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+/* 2. The Beam (z-index: 2) */
+.transmission-beam {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    /* Conic Gradient for "Radar Scan" look */
+    /* Centered at Speaker (Top Center: 50% 15%) to match speaker pos */
+    /* Beam points DOWN centered at 180deg */
+    background: conic-gradient(from 0deg at 50% 15%,
+            transparent 115deg,
+            rgba(235, 0, 40, 0.15) 180deg,
+            transparent 245deg);
+    z-index: 2;
+}
+
+/* 3. The Speaker (z-index: 3) */
+.transmission-speaker {
+    position: absolute;
+    top: 15%;
+    /* Fixed position for speaker */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    /* Interaction trigger */
+}
+
+/* Hovering Speaker triggers Beam */
+.transmission-speaker:hover~.transmission-beam {
+    opacity: 1;
+}
+
+/* Hovering Speaker triggers Audience Glow */
+.transmission-speaker:hover~.audience-container .audience-dot {
+    background-color: rgba(235, 0, 40, 0.3);
+    box-shadow: 0 0 5px rgba(235, 0, 40, 0.5);
+}
+
+.speaker-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--red-primary);
+    border-radius: 50%;
+    position: relative;
+    z-index: 4;
+}
+
+.speaker-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--red-primary);
+    opacity: 0;
+    animation: speaker-pulse-anim 2s infinite ease-out;
+}
+
+.speaker-label {
+    margin-left: 1rem;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+}
+
+@keyframes speaker-pulse-anim {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+    }
+
+    100% {
+        width: 400%;
+        height: 400%;
+        opacity: 0;
+    }
+}
+
+/* 4. The Audience (z-index: 3) */
+.audience-container {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    /* Let clicks pass through, but dots will have pointer-events: auto */
+}
+
+.audience-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 1px solid var(--red-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    /* Make dots interactive */
+    transition: all 0.3s ease;
+    cursor: crosshair;
+}
+
+.audience-dot:hover {
+    background: var(--red-primary);
+    box-shadow: 0 0 8px var(--red-primary);
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.audience-label {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.curator-note-footer {
+    padding: 6rem 0 3rem;
+    text-align: center;
+    border-top: 1px solid var(--gray-900);
+}
+
+.curator-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.note-text {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--gray-400);
+    margin-bottom: 2rem;
+}
+
+.digital-signature {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--red-primary);
+    opacity: 0.8;
+}
+
+.cta-banner {
+    padding: 8rem 0;
+    text-align: center;
+    border-top: 1px solid var(--gray-900);
+}
+
+.cta-heading {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    color: var(--white);
+}
+
+.btn-cta {
+    font-size: 1.25rem;
+    padding: 1.5rem 4rem;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.btn-cta:hover {
+    background: var(--red-primary);
+    border-color: var(--red-primary);
+    color: var(--white);
+}
+
+.site-footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--gray-900);
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 0.85rem;
+}
+
+.footer-links {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-links a:hover {
+    color: var(--red-primary);
+}
+
+/* =====================================
+   ARCHIVE PAGE (SPEAKERS)
+   ===================================== */
+.archive-timeline {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--black);
+    padding: 1rem 0;
+    margin-top: 5rem;
+}
+
+.timeline-track {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.timeline-node {
+    position: relative;
+    z-index: 10;
+    background: var(--black);
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    /* Make all nodes clickable */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.timeline-node:hover {
+    opacity: 1;
+}
+
+.timeline-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gray-800);
+    border: 1px solid var(--gray-800);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+}
+
+.timeline-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gray-600);
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+}
+
+.timeline-node.active .timeline-marker {
+    background: var(--red-primary);
+    border-color: var(--red-primary);
+}
+
+.timeline-node.active .timeline-label {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.timeline-node.future {
+    cursor: pointer;
+}
+
+.timeline-node.future .timeline-marker {
+    background: transparent;
+    border-color: var(--gray-600);
+}
+
+.timeline-node.future:hover .timeline-marker {
+    border-color: var(--red-primary);
+}
+
+.timeline-node.future:hover .timeline-label {
+    color: var(--red-primary);
+}
+
+.archive-header {
+    text-align: center;
+    padding: 6rem 0 4rem;
+    background: var(--black);
+}
+
+.archive-meta {
+    font-family: var(--font-mono);
+    color: var(--red-primary);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+}
+
+.archive-title {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: var(--white);
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.archive-location {
+    display: inline-block;
+    border-top: 1px solid var(--gray-800);
+    padding-top: 1rem;
+    color: var(--gray-500);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.archive-prologue {
+    max-width: 600px;
+    margin: 0 auto 6rem;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.prologue-text {
+    font-size: 1.1rem;
+    color: var(--gray-300);
+    line-height: 1.8;
+}
+
+.prologue-text::after {
+    content: '■';
+    color: var(--red-primary);
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    vertical-align: middle;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--gray-900);
+    border: 1px solid var(--gray-900);
+}
+
+.archive-card {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    transition: z-index 0s;
+}
+
+.archive-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.archive-card:hover .archive-card-img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.archive-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0) 100%);
+    transform: translateY(10px);
+    transition: transform 0.4s ease;
+}
+
+.archive-card:hover .archive-info {
+    transform: translateY(0);
+}
+
+.speaker-name {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.speaker-role {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--red-primary);
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.speaker-quote {
+    font-size: 0.9rem;
+    color: var(--gray-400);
+    font-family: var(--font-body);
+    font-style: italic;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.archive-card:hover .speaker-quote {
+    opacity: 1;
+    max-height: 100px;
+    margin-bottom: 1rem;
+}
+
+.archive-btn {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease 0.1s;
+}
+
+.archive-btn:hover {
+    border-color: var(--red-primary);
+    background: var(--red-primary);
+}
+
+.archive-card:hover .archive-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.archive-footer {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.archive-end-mark {
+    font-family: var(--font-mono);
+    color: var(--gray-600);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    position: relative;
+    display: inline-block;
+}
+
+.archive-end-mark::before,
+.archive-end-mark::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gray-800);
+    margin: 0.5rem auto;
+}
+
+/* Drawer */
+#drawer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#drawer-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#drawer-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40vw;
+    min-width: 350px;
+    height: 100vh;
+    background: var(--black);
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    border-left: 1px solid var(--gray-800);
+}
+
+#drawer-panel.open {
+    transform: translateX(0);
+}
+
+.drawer-hero {
+    position: relative;
+    height: 35%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.drawer-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.drawer-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, var(--black), transparent);
+}
+
+.drawer-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: background 0.3s;
+}
+
+.drawer-close:hover {
+    background: var(--red-primary);
+}
+
+.drawer-content {
+    padding: 0 3rem 4rem;
+    margin-top: -3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.drawer-name {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.drawer-role {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--red-primary);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.drawer-quote-block {
+    border-left: 3px solid var(--red-primary);
+    padding-left: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.drawer-quote-text {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--gray-300);
+    line-height: 1.4;
+}
+
+.drawer-bio {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--gray-400);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.drawer-video-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--white);
+    border-bottom: 1px solid var(--gray-800);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.drawer-video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--black-soft);
+}
+
+.drawer-video-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* =====================================
+   TEAM PAGE: THE ARCHITECTS
+   ===================================== */
+
+/* 1. HEADER (Architecture Style) */
+.architects-header {
+    text-align: center;
+    padding: 8rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.architects-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fade-up 1.5s ease forwards;
+}
+
+.architects-meta {
+    font-family: var(--font-mono);
+    color: var(--red-primary);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fade-in 2s ease 0.5s forwards;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* 2. TEAM GRID & CARDS */
+.team-section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--white);
+    font-style: italic;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+.team-section-title::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    background: var(--red-primary);
+    margin: 1rem auto 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    /* Massive margins */
+    margin-bottom: 8rem;
+}
+
+/* =====================================
+   ARCHITECT'S GALLERY (TEAM)
+   ===================================== */
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem 3rem;
+    /* Row gap, Col gap */
+    margin-top: 3rem;
+}
+
+/* The Wrapper (Layout Item) */
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* No visual styles on wrapper, just layout */
+}
+
+/* 1. The Frame Structure */
+.team-gallery-frame {
+    position: relative;
+    width: 300px;
+    aspect-ratio: 3/4;
+    /* The Physical Frame: Distinct 6px double border */
+    border: 6px double #222;
+    /* The Matting: Inner padding acting as matting */
+    background: #111;
+    /* Matting color */
+    padding: 15px;
+
+    transition: border-color 0.4s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. The Window (Clips the image inside the matting) */
+.team-gallery-window {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 3. The Image (Object-Fit + Filters) */
+.team-gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    /* Default State: Grayscale & Dimmed */
+    filter: grayscale(100%) brightness(80%);
+    transition: filter 0.5s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 4. Visual Interaction (The Unveiling) */
+.team-card:hover .team-gallery-frame {
+    border-color: var(--red-primary);
+}
+
+.team-card:hover .team-gallery-img {
+    filter: grayscale(0%) brightness(100%);
+    transform: scale(1.1);
+    /* Zoom effect */
+}
+
+/* 5. The Info Plaque (The Label) */
+.team-info {
+    margin-top: 1.5rem;
+    text-align: center;
+    /* Strict gap kept via margin-top */
+}
+
+.team-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.team-role {
+    font-family: var(--font-mono);
+    /* Inter or Courier per spec - sticking to Mono for "Plaque" feel */
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.team-card:hover .team-role {
+    /* Optional: Spec said "Red or Dark Grey". Let's keep it subtle or make it pop?
+       "Hover State... Frame: Red". Text unspecific but "Role... Red or Dark Grey".
+       Let's keep text behavior simple or maybe slight flush. */
+    color: var(--red-primary);
+}
+
+/* Mobile Responsiveness for Fixed Widths */
+@media (max-width: 768px) {
+    .team-gallery-frame {
+        width: 100%;
+        /* Fill container */
+        max-width: 320px;
+        /* Cap size */
+        margin: 0 auto;
+        /* Center it */
+    }
+}
+
+/* 3. DEVELOPER CARD (SPECIAL) */
+.developer-section {
+    padding: 6rem 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--gray-900);
+    border-bottom: 1px solid var(--gray-900);
+    margin-bottom: 6rem;
+}
+
+.developer-card {
+    display: block;
+    /* Make <a> a block */
+    max-width: 500px;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.developer-visual {
+    aspect-ratio: 1/1;
+    /* Square or 3:4, user said "Standard 3:4" in Core, but let's stick to 3:4 for consistency with Grid */
+    aspect-ratio: 3/4;
+    border: 1px solid var(--gray-800);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: all 0.4s ease;
+}
+
+/* Developer Hover */
+.developer-card:hover .developer-visual {
+    border-color: var(--red-primary);
+    box-shadow: 0 0 25px rgba(235, 0, 40, 0.6);
+    /* Neon Red Glow */
+}
+
+.developer-card:hover .developer-img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.developer-card:hover .team-name {
+    color: var(--white);
+}
+
+.developer-card:hover .team-role {
+    color: var(--red-primary);
+}
+
+/* Apply cursor pointer and lift */
+.developer-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 4. GUILD SECTIONS (Volunteers) */
+.guild-section {
+    margin-bottom: 5rem;
+}
+
+.guild-header {
+    border-left: 3px solid var(--red-primary);
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    color: var(--white);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+}
+
+.guild-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns for compact list */
+    gap: 1.5rem;
+}
+
+.guild-card {
+    padding: 1rem;
+    border: 1px solid var(--gray-900);
+    background: var(--black-soft);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.guild-card:hover {
+    border-color: var(--gray-600);
+    transform: translateY(-3px);
+}
+
+.guild-name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.guild-role {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gray-500);
+    margin-top: 0.25rem;
+}
+
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .architects-title {
+        font-size: 3rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .guild-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #drawer-panel {
+        width: 100vw;
+        min-width: 100vw;
+    }
+
+    .drawer-content {
+        padding: 0 1.5rem 3rem;
+    }
+
+    .drawer-name {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .gate-visual {
+        width: 100vw;
+        height: 100vh;
+        transform-origin: center center;
+        position: absolute;
+    }
+
+    .gate-logo {
+        font-size: 3rem;
+    }
+
+    .gate-theme {
+        font-size: 4rem;
+    }
+
+    .passage-container {
+        height: 200vh;
+    }
+
+    .about-split {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .dual-narrative {
+        grid-template-columns: 1fr;
+    }
+
+    .narrative-half {
+        padding: 4rem 2rem;
+        min-height: auto;
+    }
+
+    .narrative-left {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-900);
+    }
+
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pillar-col {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-900);
+        padding: 4rem 2rem;
+    }
+
+    .orbit-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .orbit-spotlight {
+        display: none;
+    }
+
+    .reel-wrapper {
+        display: none;
+    }
+
+    .reel-viewport {
+        height: auto;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .reel-column {
+        transform: active !important;
+        gap: 0.5rem;
+    }
+
+    .reel-item {
+        height: auto;
+        padding: 1rem;
+        border: 1px solid var(--gray-800);
+        opacity: 0.7;
+        font-size: 1.1rem;
+        background: var(--black-soft);
+        color: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .reel-item.active {
+        opacity: 1;
+        border-color: var(--red-primary);
+        font-size: 1.1rem;
+    }
+
+    .reel-indicator {
+        display: none;
+    }
+
+    .reel-controls {
+        display: none;
+    }
+
+    .cta-heading {
+        font-size: 2.5rem;
+    }
+
+    .btn-cta {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .theme-section {
+        padding: 5rem 0;
+    }
+
+
+}
+
+/* =====================================
+   CONTACT PAGE: TRANSMISSION
+   ===================================== */
+
+/* --- 1. HEADER: THE FREQUENCY --- */
+.contact-header {
+    padding-top: 180px;
+    padding-bottom: 100px;
+    text-align: center;
+    position: relative;
+}
+
+.contact-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    color: var(--white);
+}
+
+.contact-meta {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+/* --- 2. SIGNAL GRID (Replaces Pricing) --- */
+.channel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Strict 2 Columns */
+    gap: 30px;
+    margin-bottom: 6rem;
+}
+
+.channel-card {
+    background-color: var(--black-soft);
+    /* Using existing var for dark grey #111 */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Thin White Border 20% */
+    padding: 3rem 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Interaction: Border turns Red */
+.channel-card:hover {
+    border-color: var(--red-primary);
+    transform: translateY(-5px);
+}
+
+.channel-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    transition: color 0.3s;
+}
+
+.channel-card:hover .channel-icon {
+    /* Optional: keep icon white or turn red? Reference didn't specify, but usually looks good. 
+       Reference CSS didn't have hover color change for icon, just border. 
+       I will stick to reference: only border changes. */
+}
+
+.channel-heading {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.channel-desc {
+    color: var(--gray-500);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.channel-action {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--red-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 3. TRANSMISSION LOG (Contact Form) --- */
+.transmission-section {
+    margin-bottom: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.transmission-form {
+    width: 100%;
+    max-width: 700px;
+    /* Restricted width */
+}
+
+.form-group {
+    margin-bottom: 3rem;
+}
+
+.form-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+/* Input Style: No Box, Just Line */
+.form-input,
+.form-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    font-family: var(--font-mono);
+    /* Courier Style */
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    transition: border-color 0.3s ease;
+    outline: none;
+    border-radius: 0;
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-bottom-color: var(--red-primary);
+}
+
+.btn-transmit {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 1rem 3rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: 2rem;
+    width: auto;
+    /* Allow auto width or 100%? Reference looked like block button but css said inline-ish? 
+                   Reference has 'display: block' and 'width' not set, so it stretches? 
+                   Wait, button default is inline-block. 
+                   User ref: display: block; so it takes full width if not restricted? 
+                   Actually in the screenshot/mind's eye it's usually fitted. 
+                   I'll stick to display: inline-block or fit-content to look better, 
+                   BUT User Ref said display: block. I will trust user ref. */
+    display: block;
+}
+
+.btn-transmit:hover {
+    background: var(--red-primary);
+    border-color: var(--red-primary);
+    color: var(--white);
+}
+
+/* --- 4. TACTICAL MAP & COORDINATES --- */
+.coordinates-section {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.coordinates-info {
+    flex: 1;
+    padding: 5rem 2rem 5rem 10vw;
+    /* Indented left */
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.coordinates-map {
+    flex: 1;
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+    background: #222;
+}
+
+.coordinates-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+}
+
+.address-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.address-bold {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+.address-mono {
+    font-family: var(--font-mono);
+    color: var(--gray-500);
+    font-size: 0.9rem;
+}
+
+/* The Map Magic: Filter for Blueprint look */
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(100%) invert(90%) contrast(1.2);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.map-frame:hover {
+    opacity: 1;
+}
+
+/* --- 5. COMMAND CHAIN --- */
+.command-chain {
+    padding: 4rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chain-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.chain-item {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.chain-label {
+    color: var(--gray-500);
+    margin-right: 0.5rem;
+}
+
+.chain-link {
+    color: var(--white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.chain-link:hover {
+    color: var(--red-primary);
+    border-color: var(--red-primary);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 2.5rem;
+    }
+
+    .channel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .coordinates-section {
+        flex-direction: column;
+    }
+
+    .coordinates-info {
+        padding: 3rem 2rem;
+    }
+
+    .coordinates-map {
+        min-height: 300px;
+    }
+
+    .chain-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* --- NAVIGATION FIX for CONTACT PAGE --- */
+/* Active state on Contact Page (overriding base styles) */
+.nav-links a.active.btn-primary {
+    background-color: transparent !important;
+    color: var(--red-primary) !important;
+    border-color: var(--red-primary) !important;
+    opacity: 1;
+}
+
+.nav-links a.active.btn-primary:hover {
+    background-color: var(--red-primary) !important;
+    color: var(--black) !important;
+    /* Text white or black? Base btn hover is white bg black text. 
+                                       User ref says: color: var(--text-white) !important; 
+                                       So red bg, white text. */
+    color: var(--white) !important;
+}

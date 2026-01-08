@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Establish Contact | TEDxNITW</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-ted">TEDx</span><span class="logo-nitw">NITW</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="speakers.html">Legacy</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html" class="active btn btn-primary"
+                style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">CONTACT</a>
+        </div>
+        <button class="mobile-menu-toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+    </nav>
+
+    <!-- 1. HEADER: THE FREQUENCY -->
+    <header class="contact-header">
+        <div class="container">
+            <h1 class="contact-title">ESTABLISH CONTACT</h1>
+            <div class="contact-meta">// FREQUENCY: OPEN | NIT WARANGAL</div>
+        </div>
+    </header>
+
+    <!-- 2. SIGNAL GRID (Replaces Pricing) -->
+    <section class="container">
+        <div class="channel-grid">
+            <!-- Channel 1: The Stage -->
+            <div class="channel-card"
+                onclick="window.location.href='mailto:curator@tedxnitw.com?subject=Speaker Nomination'">
+                <div class="channel-icon"><ion-icon name="mic-outline"></ion-icon></div>
+                <h2 class="channel-heading">The Stage</h2>
+                <p class="channel-desc">Nominate a voice that needs to be heard. We are listening for ideas worth
+                    spreading.</p>
+                <div class="channel-action">Nominate Speaker &rarr;</div>
+            </div>
+
+            <!-- Channel 2: The Control Room -->
+            <div class="channel-card"
+                onclick="window.location.href='mailto:contact@tedxnitw.com?subject=General Inquiry'">
+                <div class="channel-icon"><ion-icon name="information-circle-outline"></ion-icon></div>
+                <h2 class="channel-heading">General Inquiry</h2>
+                <p class="channel-desc">Event details, tickets, and logistical queries regarding the upcoming event.</p>
+                <div class="channel-action">Ping Core Team &rarr;</div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 4. TACTICAL MAP (Venue Match) -->
+    <section class="coordinates-section">
+        <div class="coordinates-info">
+            <h2 class="coordinates-title">THE COORDINATES</h2>
+            <div class="address-block">
+                <span class="address-bold">NATIONAL INSTITUTE OF TECHNOLOGY, WARANGAL</span>
+                <span class="address-mono">AUDITORIUM A // CAMPUS ZONE 4</span>
+                <span class="address-mono">HANAMKONDA, TELANGANA 506004</span>
+            </div>
+            <!-- Compass Icon visual -->
+            <div style="font-size: 3rem; color: var(--red-primary); margin-top: 2rem; opacity: 0.8;">
+                <ion-icon name="compass-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="coordinates-map">
+            <!-- OpenStreetMap Embed with filter logic applied via CSS -->
+            <iframe class="map-frame"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=79.5290,17.9800,79.5350,17.9860&amp;layer=mapnik&amp;marker=17.9830,79.5315"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- 5. COMMAND CHAIN -->
+    <section class="command-chain">
+        <div class="container chain-list">
+            <div class="chain-item">
+                <span class="chain-label">Lead Organizer:</span>
+                <a href="mailto:lead@tedxnitw.com" class="chain-link">[Name Surname]</a>
+            </div>
+            <div class="chain-item">
+                <span class="chain-label">Lead Curator:</span>
+                <a href="mailto:curator@tedxnitw.com" class="chain-link">[Name Surname]</a>
+            </div>
+            <div class="chain-item">
+                <span class="chain-label">Webmaster:</span>
+                <a href="https://keykyrios.github.io/" target="_blank" class="chain-link">Mitrajit Ghorui</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-grey);">
+                &copy; 2026 TEDxNITW. This independent TEDx event is operated under license from TED.
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6; font-family: var(--font-mono);">
+                Made by <a href="https://keykyrios.github.io/" target="_blank"
+                    style="color: var(--red-primary); text-decoration: none;">Mitrajit Ghorui</a>
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Smooth Nav
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) nav.classList.add('scrolled-nav');
+            else nav.classList.remove('scrolled-nav');
+        });
+    </script>
+</body>
+
+</html>

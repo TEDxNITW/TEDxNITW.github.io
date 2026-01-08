@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDxNITW | Uncharted</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-ted">TEDx</span><span class="logo-nitw">NITW</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="speakers.html">Legacy</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html" class="btn btn-primary"
+                style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">CONTACT</a>
+        </div>
+        <button class="mobile-menu-toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+    </nav>
+
+    <!-- 1. THE PASSAGE (HERO) -->
+    <div class="passage-container" id="passageContainer">
+        <div class="gate-sticky-wrapper">
+            <!-- Digital Ocean Background -->
+            <canvas id="waveCanvas"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: #050505;"></canvas>
+
+            <!-- Text Layer (Foreground z-index: 10) -->
+            <div class="gate-text-layer" id="gateText">
+                <div class="uppercase"
+                    style="letter-spacing: 0.2em; font-size: 0.9rem; margin-bottom: 1rem; color: var(--gray-300);">
+                    National Institute of Technology, Warangal</div>
+                <div class="gate-logo"><span class="logo-ted">TEDx</span><span class="logo-nitw">NITW</span></div>
+                <h1 class="gate-theme" style="white-space: nowrap;">UNCHARTED</h1>
+                <div class="uppercase"
+                    style="letter-spacing: 0.2em; font-size: 0.9rem; margin-top: 1rem; color: var(--gray-300);">Feb
+                    22, 2026</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main style="position: relative; z-index: 20; background: var(--black);">
+
+        <!-- 2. ABOUT (SPLIT) -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="about-split">
+                    <div>
+                        <h2 class="section-title serif">The Spirit of Warangal.</h2>
+                        <div class="red-line"></div>
+                        <p class="readability-text" style="font-size: 1.15rem; color: var(--gray-300);">
+                            In the heart of the Deccan, where history breathes through stone, lies a crucible of modern
+                            thought.
+                            <strong>TEDxNITW</strong> is not just an event; it is a convergence of the curious. We are
+                            peeling back the layers of the known world to explore the <em>Uncharted</em>.
+                        </p>
+                    </div>
+                    <div class="about-video-container" id="campusSlider"
+                        style="position: relative; overflow: hidden; background: #000;">
+                        <!-- Slider Images Injected via JS -->
+                        <div id="sliderTrack" style="width: 100%; height: 100%; position: relative;">
+                            <!-- Images go here -->
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="slider-controls" style="position: absolute; bottom: 0; right: 0; display: flex;">
+                            <div class="slider-arrow" id="slidePrev"
+                                style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: 0.3s;">
+                                <ion-icon name="chevron-back-outline"
+                                    style="color: white; font-size: 1.2rem;"></ion-icon>
+                            </div>
+                            <div class="slider-arrow" id="slideNext"
+                                style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); border-left: none; cursor: pointer; transition: 0.3s;">
+                                <ion-icon name="chevron-forward-outline"
+                                    style="color: white; font-size: 1.2rem;"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LEGACY OF THOUGHT (INFINITE REEL) -->
+        <section class="section-padding orbit-section">
+            <div class="container">
+                <div class="uppercase text-red" style="margin-bottom: 2rem; letter-spacing: 0.2em;">Legacy of Thought
+                </div>
+
+                <div class="orbit-container">
+                    <!-- Left: Spotlight (Desktop) -->
+                    <div class="orbit-spotlight" id="orbitSpotlight">
+                        <img src="assets/Past year events screenshots/Nag_Ashwin.jpg" alt="Spotlight Speaker"
+                            class="orbit-image" id="spotlightImg">
+                        <div class="orbit-quote" id="spotlightQuote">"We solve a problem because it exists."
+                        </div>
+                        <div class="orbit-author" id="spotlightAuthor">Nag Ashwin | Filmmaker</div>
+                    </div>
+
+                    <!-- Right: The Infinite Reel -->
+                    <div class="reel-wrapper" id="reelWrapper">
+                        <!-- Controls -->
+                        <div class="reel-controls">
+                            <div class="reel-btn" id="reelUp"><ion-icon name="chevron-up-outline"></ion-icon></div>
+                            <div class="reel-btn" id="reelDown"><ion-icon name="chevron-down-outline"></ion-icon></div>
+                        </div>
+
+                        <!-- Viewport -->
+                        <div class="reel-viewport">
+                            <div class="reel-column" id="reelList">
+                                <!-- All Speakers List (Will be cycled) -->
+                                <div class="reel-item active" data-index="0"
+                                    data-img="assets/Past year events screenshots/Nag_Ashwin.jpg"
+                                    data-quote='"We solve a problem because it exists."'
+                                    data-author="Nag Ashwin | Filmmaker">
+                                    <div class="reel-indicator"></div>
+                                    Nag Ashwin
+                                </div>
+
+                                <!-- 2020 Speakers -->
+                                <div class="reel-item" data-index="15"
+                                    data-img="assets/Past year events screenshots/Chitra_Vishwanath.jpg"
+                                    data-quote='"Building with nature, not against it."'
+                                    data-author="Chitra Vishwanath | Architect">
+                                    <div class="reel-indicator"></div>
+                                    Chitra Vishwanath
+                                </div>
+                                <div class="reel-item" data-index="16"
+                                    data-img="assets/Past year events screenshots/Saptarishi_Prakash.jpg"
+                                    data-quote='"Design is not just what it looks like, it&apos;s how it works."'
+                                    data-author="Saptarshi Prakash | Digital Experience Designer">
+                                    <div class="reel-indicator"></div>
+                                    Saptarshi Prakash
+                                </div>
+                                <div class="reel-item" data-index="17"
+                                    data-img="assets/Past year events screenshots/Seema_Tomar.jpg"
+                                    data-quote='"Aim high, shoot higher."' data-author="Seema Tomar | Trap Shooter">
+                                    <div class="reel-indicator"></div>
+                                    Seema Tomar
+                                </div>
+                                <div class="reel-item" data-index="18"
+                                    data-img="assets/Past year events screenshots/Srinivasan_Sundarrajan.jpg"
+                                    data-quote='"Innovation is the bridge between science and society."'
+                                    data-author="Srinivasan Sundarrajan | Scientist &amp; Professor">
+                                    <div class="reel-indicator"></div>
+                                    Srinivasan Sundarrajan
+                                </div>
+                                <div class="reel-item" data-index="19"
+                                    data-img="assets/Past year events screenshots/Sudip_Ghose.jpg"
+                                    data-quote='"Leadership is about making others better."'
+                                    data-author="Sudip Ghose | MD, VIP Industries Ltd">
+                                    <div class="reel-indicator"></div>
+                                    Sudip Ghose
+                                </div>
+
+                                <!-- 2021 Speaker -->
+                                <div class="reel-item" data-index="20"
+                                    data-img="assets/Past year events screenshots/Sonali_Devnani.jpg"
+                                    data-quote='"Stories deserve to be told."'
+                                    data-author="Sonali Devnani | Portrait Photographer">
+                                    <div class="reel-indicator"></div>
+                                    Sonali Devnani
+                                </div>
+
+                                <div class="reel-item" data-index="1"
+                                    data-img="assets/Past year events screenshots/Tiny_Nair.jpg"
+                                    data-quote='"Medicine is a science, but healing is an art."'
+                                    data-author="Dr. Tiny Nair | Cardiologist">
+                                    <div class="reel-indicator"></div>
+                                    Dr. Tiny Nair
+                                </div>
+
+                                <div class="reel-item" data-index="2"
+                                    data-img="assets/Past year events screenshots/sandeep_event.png"
+                                    data-quote='"Art is not about being safe. It is about truth."'
+                                    data-author="Sandeep Reddy Vanga | Filmmaker">
+                                    <div class="reel-indicator"></div>
+                                    Sandeep Reddy Vanga
+                                </div>
+
+                                <div class="reel-item" data-index="3"
+                                    data-img="assets/Past year events screenshots/Vipul_Rastogi.jpg"
+                                    data-quote='"The mind is the final frontier."'
+                                    data-author="Dr. Vipul Rastogi | Neuropsychiatrist">
+                                    <div class="reel-indicator"></div>
+                                    Dr. Vipul Rastogi
+                                </div>
+
+                                <div class="reel-item" data-index="4"
+                                    data-img="assets/Past year events screenshots/Manish_Mehrotra.jpg"
+                                    data-quote='"Flavor is a memory."' data-author="Manish Mehrotra | Chef">
+                                    <div class="reel-indicator"></div>
+                                    Manish Mehrotra
+                                </div>
+
+                                <div class="reel-item" data-index="5"
+                                    data-img="assets/Past year events screenshots/shikha_event.png"
+                                    data-quote='"To serve the nation is the highest calling."'
+                                    data-author="Shikha Pandey | Cricketer & Flight Lt.">
+                                    <div class="reel-indicator"></div>
+                                    Shikha Pandey
+                                </div>
+
+                                <div class="reel-item" data-index="6"
+                                    data-img="assets/Past year events screenshots/Flavia_Agnes.jpg"
+                                    data-quote='"Justice must be viable for everyone."'
+                                    data-author="Flavia Agnes | Lawyer">
+                                    <div class="reel-indicator"></div>
+                                    Flavia Agnes
+                                </div>
+
+                                <div class="reel-item" data-index="7"
+                                    data-img="assets/Past year events screenshots/Manan_Gupta.jpg"
+                                    data-quote='"Music is the language of the lost."'
+                                    data-author="Manan Gupta | Guitarist">
+                                    <div class="reel-indicator"></div>
+                                    Manan Gupta
+                                </div>
+
+                                <div class="reel-item" data-index="8"
+                                    data-img="assets/Past year events screenshots/Mavendra_Singh_Gohil.jpg"
+                                    data-quote='"Truth is the only royalty."'
+                                    data-author="Manvendra Singh Gohil | Activist">
+                                    <div class="reel-indicator"></div>
+                                    Manvendra Singh Gohil
+                                </div>
+
+                                <div class="reel-item" data-index="9"
+                                    data-img="assets/Past year events screenshots/Mani_Vajipey.jpg"
+                                    data-quote='"Waste is a design flaw."'
+                                    data-author="Mani Vajipey | CEO, Banyan Nation">
+                                    <div class="reel-indicator"></div>
+                                    Mani Vajipey
+                                </div>
+
+                                <div class="reel-item" data-index="10"
+                                    data-img="assets/Past year events screenshots/partha_event.png"
+                                    data-quote='"Intelligence is not just data, it is context."'
+                                    data-author="Partha Pratim | AI Scientist">
+                                    <div class="reel-indicator"></div>
+                                    Partha Pratim Talukdar
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. THEME & CTA -->
+        <section class="theme-section">
+            <div class="hollow-text-bg">UNCHARTED</div>
+            <div class="manifesto-box">
+                <p class="manifesto-text">
+                    We are mapping the unknown.<br>
+                    <span class="text-red">Join the expedition.</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="container">
+                <h2 class="cta-heading serif">Join the Discourse.</h2>
+                <a href="contact.html" class="btn-cta">Contact Us</a>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+                <p>&copy; 2026 TEDxNITW. This independent TEDx event is operated under license from TED.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">
+                    Made by <a href="https://keykyrios.github.io/" target="_blank"
+                        style="color: var(--red-primary); text-decoration: none;">Mitrajit Ghorui</a>
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

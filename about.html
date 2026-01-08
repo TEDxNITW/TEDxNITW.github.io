@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | TEDxNITW</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-ted">TEDx</span><span class="logo-nitw">NITW</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="speakers.html">Legacy</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html" class="btn btn-primary"
+                style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">CONTACT</a>
+        </div>
+        <button class="mobile-menu-toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+    </nav>
+
+    <!-- 1. MANIFESTO HERO -->
+    <section class="manifesto-hero">
+        <h1 class="manifesto-heading">"In the shadow of history, we chart the future."</h1>
+        <div class="manifesto-meta">EST. 2026 | WARANGAL</div>
+        <div class="scroll-line-guide"></div>
+    </section>
+
+    <!-- 2. DUAL NARRATIVE (Institute vs Event) -->
+    <section class="dual-narrative">
+        <!-- Left: The Institute -->
+        <div class="narrative-half narrative-left">
+            <img src="assets/gate_full.png" alt="NIT Warangal" class="bg-institute">
+            <div class="frosted-card">
+                <div class="narrative-title">The Foundation</div>
+                <p class="narrative-text">
+                    <strong>National Institute of Technology, Warangal.</strong> <br><br>
+                    The cradle of engineering in South India. Built on the spiritual legacy of the Kakatiya dynasty, we
+                    stand where ancient prowess meets modern intellect. This is not just a campus; it is a repository of
+                    thought that spans centuries.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right: The Event (TEDx) -->
+        <div class="narrative-half narrative-right">
+            <div class="narrative-title text-red">The Assembly</div>
+            <p class="cohort-text">
+                "It is not a crowd; it is a cohort."
+            </p>
+            <br>
+            <p class="narrative-text">
+                Adhering to the strict global standards of the TEDx license, this event is curated as an exclusive
+                assembly.
+                <br><br>
+                Limited to exactly <strong>100 distinguished attendees</strong>, we foster an environment where every
+                conversation matters, and every voice is heard.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. PILLARS OF DISCOURSE -->
+    <section class="pillars-section">
+        <div class="container">
+            <div class="pillars-grid">
+                <!-- I -->
+                <div class="pillar-col">
+                    <span class="pillar-num">I</span>
+                    <div class="pillar-title">Discovery</div>
+                    <p class="pillar-desc">Unearthing ideas that challenge the conventional wisdom of our time.</p>
+                </div>
+                <!-- II -->
+                <div class="pillar-col">
+                    <span class="pillar-num">II</span>
+                    <div class="pillar-title">Dialogue</div>
+                    <p class="pillar-desc">Fostering unscripted, raw, and intellectual exchanges between speakers and
+                        the cohort.</p>
+                </div>
+                <!-- III -->
+                <div class="pillar-col">
+                    <span class="pillar-num">III</span>
+                    <div class="pillar-title">Dissemination</div>
+                    <p class="pillar-desc">Broadcasting the spirit of Warangal to the global digital stage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BLUEPRINT MAP -->
+    <section class="blueprint-section">
+        <div class="container text-center">
+            <div class="narrative-title" style="margin-bottom: 3rem;">The Venue Blueprint</div>
+
+            <div class="blueprint-map-container">
+                <div class="blueprint-grid"></div>
+
+                <!-- 1. The Beam (Background Layer) -->
+                <div class="transmission-beam"></div>
+
+                <!-- 2. The Speaker (Source) -->
+                <div class="transmission-speaker">
+                    <div class="speaker-dot"></div>
+                    <div class="speaker-pulse"></div>
+                    <div class="speaker-label">// SPEAKER: SIGNAL SOURCE</div>
+                </div>
+
+                <!-- 3. The Audience (Target) -->
+                <div class="audience-container" id="audienceGrid">
+                    <!-- JS will populate dots here -->
+                </div>
+
+                <!-- 4. Footer Label -->
+                <div class="audience-label">// COHORT CAPACITY: 100 NODES</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CURATOR NOTE (Footer) -->
+    <footer class="curator-note-footer">
+        <div class="curator-container">
+            <p class="note-text">
+                "Curated by the students of NIT Warangal. Licensed by TED."
+            </p>
+        </div>
+    </footer>
+
+    <!-- Standard Site Footer for Links -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+            <p>&copy; 2026 TEDxNITW. This independent TEDx event is operated under license from TED.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">
+                Made by <a href="https://keykyrios.github.io/" target="_blank"
+                    style="color: var(--red-primary); text-decoration: none;">Mitrajit Ghorui</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Archives | TEDxNITW</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-ted">TEDx</span><span class="logo-nitw">NITW</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="speakers.html" class="active">Legacy</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html" class="btn btn-primary"
+                style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">CONTACT</a>
+        </div>
+        <button class="mobile-menu-toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+    </nav>
+
+    <!-- 1. TIMELINE NAVIGATION -->
+    <div class="archive-timeline">
+        <div class="timeline-track">
+            <!-- Vol I: 2017 -->
+            <div class="timeline-node" id="vol2017">
+                <div class="timeline-marker"></div>
+                <div class="timeline-label">VOL. I: 2017</div>
+            </div>
+            <!-- Vol II: 2018 -->
+            <div class="timeline-node" id="vol2018">
+                <div class="timeline-marker"></div>
+                <div class="timeline-label">VOL. II: 2018</div>
+            </div>
+            <!-- Vol III: 2020 -->
+            <div class="timeline-node" id="vol2020">
+                <div class="timeline-marker"></div>
+                <div class="timeline-label">VOL. III: 2020</div>
+            </div>
+            <!-- Vol IV: 2021 -->
+            <div class="timeline-node active" id="vol2021">
+                <div class="timeline-marker"></div>
+                <div class="timeline-label">VOL. IV: 2021</div>
+            </div>
+            <!-- Future Node (Interactive) -->
+            <div class="timeline-node future" id="timelineFuture">
+                <div class="timeline-marker"></div>
+                <div class="timeline-label" id="timelineFutureLabel">VOL. V: 2026</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. EDITORIAL HEADER -->
+    <header class="archive-header">
+        <div class="container">
+            <div class="archive-meta" id="archiveMeta">ARCHIVED EVENT // NOVEMBER 21, 2021</div>
+            <h1 class="archive-title" id="archiveTitle">TEDxNITWStudio</h1>
+            <div class="archive-location" id="archiveLocation">Virtual / NIT Warangal</div>
+        </div>
+    </header>
+
+    <!-- 3. PROLOGUE -->
+    <div class="archive-prologue">
+        <p class="prologue-text" id="archivePrologue">
+            In the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people
+            together to share a TED-like experience. At a TEDx event, TEDTalks video and live speakers combine to spark
+            deep discussion and connection in a small group. These local, self-organized events are branded TEDx, where
+            x = independently organized TED event. The TED Conference provides general guidance for the TEDx program,
+            but individual TEDx events are self-organized.
+        </p>
+    </div>
+
+    <!-- 4. SPEAKER GRID (Container for JS Injection) -->
+    <section class="container" style="margin-bottom: 4rem;">
+        <div class="archive-grid" id="gridContainer">
+            <!-- Items injected by script.js -->
+        </div>
+    </section>
+
+    <!-- 5. ARCHIVE FOOTER -->
+    <div class="archive-footer">
+        <div class="archive-end-mark">End of Vol. I Record</div>
+    </div>
+
+    <!-- Standard Site Footer for Links -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+            <p>&copy; 2026 TEDxNITW. This independent TEDx event is operated under license from TED.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">
+                Made by <a href="https://keykyrios.github.io/" target="_blank"
+                    style="color: var(--red-primary); text-decoration: none;">Mitrajit Ghorui</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- 6. DRAWER (DOSSIER) -->
+    <div id="drawer-backdrop"></div>
+    <div id="drawer-panel">
+        <div class="drawer-close"><ion-icon name="close-outline"></ion-icon></div>
+
+        <div class="drawer-hero">
+            <img src="" alt="Speaker" class="drawer-hero-img" id="d-img">
+            <div class="drawer-hero-overlay"></div>
+        </div>
+
+        <div class="drawer-content">
+            <h2 class="drawer-name" id="d-name">Speaker Name</h2>
+            <span class="drawer-role" id="d-role">Role</span>
+
+            <div class="drawer-quote-block">
+                <p class="drawer-quote-text" id="d-quote">"Quote goes here"</p>
+            </div>
+
+            <div class="drawer-bio" id="d-bio">Bio text...</div>
+
+            <div class="drawer-video-label">The Talk</div>
+            <div class="drawer-video-container">
+                <iframe id="d-video" src="" title="YouTube video player" width="100%" height="400" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
