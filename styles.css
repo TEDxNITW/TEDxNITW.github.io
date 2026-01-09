@@ -1821,36 +1821,49 @@ img.grayscale-hover:hover,
 
     /* Blueprint/Transmission Section Mobile */
     .blueprint-section {
-        padding: 3rem 0.5rem;
-        overflow: visible;
+        padding: 2rem 0.5rem;
+        overflow: hidden;
     }
 
     .blueprint-map-container {
-        aspect-ratio: 1/1;
-        /* Square for better mobile fit */
-        min-height: 280px;
-        max-height: 350px;
+        aspect-ratio: 4/5;
+        /* Taller for mobile */
+        min-height: 320px;
+        max-height: 400px;
         width: 100%;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .transmission-speaker {
-        top: 10%;
+        top: 8%;
+    }
+
+    .speaker-dot {
+        width: 12px;
+        height: 12px;
     }
 
     .audience-container {
-        transform: scale(0.8);
+        transform: scale(0.6);
         transform-origin: top center;
+        margin-top: -10px;
+    }
+
+    .audience-dot {
+        width: 6px;
+        height: 6px;
     }
 
     .speaker-label {
         display: none;
-        /* Hide label on small screens */
     }
 
     .audience-label {
-        font-size: 0.6rem;
-        bottom: 0.25rem;
+        font-size: 0.55rem;
+        bottom: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
     }
 
     /* Manifesto Hero Mobile */
