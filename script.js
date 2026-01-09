@@ -304,6 +304,7 @@ function cacheElements() {
         slideNext: getEl('slideNext'),
 
         reelList: getEl('reelList'),
+        reelViewport: document.querySelector('.reel-viewport'),
         reelUp: getEl('reelUp'),
         reelDown: getEl('reelDown'),
         // NodeList
@@ -602,24 +603,43 @@ function updateReelPosition() {
     if (count === 0) return;
 
     if (state.isMobile) {
-        // Mobile: Show all items, scroll active to center
-        els.reelItems.forEach((item, i) => {
-            // Reset inline styles from desktop mode
-            item.style.display = '';
-            item.style.position = '';
-            item.style.top = '';
-            item.style.width = '';
+        // Mobile: Horizontal circular queue with 3 visible items (left, center, right)
+        const viewportWidth = els.reelViewport ? els.reelViewport.offsetWidth : 300;
+        const visibleItems = 3;
+        const centerOffset = 1; // 1 left, active, 1 right
 
-            if (i === state.reelIndex) {
+        // Hide all items first
+        els.reelItems.forEach((item, i) => {
+            item.style.display = 'none';
+            item.classList.remove('active');
+        });
+
+        // Show only 3 items around the active one (circular)
+        for (let offset = -centerOffset; offset <= centerOffset; offset++) {
+            const idx = (state.reelIndex + offset + count) % count;
+            const item = els.reelItems[idx];
+            item.style.display = 'flex';
+            item.style.position = 'absolute';
+            item.style.top = '50%';
+            item.style.transform = 'translateY(-50%)';
+            item.style.width = 'auto';
+
+            // Position horizontally: left (0-33%), center (33-66%), right (66-100%)
+            if (offset === -1) {
+                item.style.left = '5%';
+                item.style.right = 'auto';
+            } else if (offset === 0) {
+                item.style.left = '50%';
+                item.style.transform = 'translate(-50%, -50%)';
                 item.classList.add('active');
                 updateSpotlight(item);
-                // Scroll active item to center
-                item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            } else {
-                item.classList.remove('active');
+            } else if (offset === 1) {
+                item.style.left = 'auto';
+                item.style.right = '5%';
             }
-        });
-        if (els.reelList) els.reelList.style.transform = '';
+        }
+
+        if (els.reelList) els.reelList.style.transform = 'none';
         return;
     }
 
