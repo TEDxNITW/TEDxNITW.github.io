@@ -602,10 +602,22 @@ function updateReelPosition() {
     if (count === 0) return;
 
     if (state.isMobile) {
+        // Mobile: Show all items, just highlight active one
         els.reelItems.forEach((item, i) => {
-            if (i === state.reelIndex) item.classList.add('active');
-            else item.classList.remove('active');
+            // Reset inline styles from desktop mode
+            item.style.display = '';
+            item.style.position = '';
+            item.style.top = '';
+            item.style.width = '';
+
+            if (i === state.reelIndex) {
+                item.classList.add('active');
+                updateSpotlight(item);
+            } else {
+                item.classList.remove('active');
+            }
         });
+        if (els.reelList) els.reelList.style.transform = '';
         return;
     }
 
