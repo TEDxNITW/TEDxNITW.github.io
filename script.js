@@ -602,7 +602,7 @@ function updateReelPosition() {
     if (count === 0) return;
 
     if (state.isMobile) {
-        // Mobile: Show all items, just highlight active one
+        // Mobile: Show all items, scroll active to center
         els.reelItems.forEach((item, i) => {
             // Reset inline styles from desktop mode
             item.style.display = '';
@@ -613,6 +613,8 @@ function updateReelPosition() {
             if (i === state.reelIndex) {
                 item.classList.add('active');
                 updateSpotlight(item);
+                // Scroll active item to center
+                item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             } else {
                 item.classList.remove('active');
             }
