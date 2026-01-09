@@ -1871,11 +1871,11 @@ img.grayscale-hover:hover,
     }
 
     .orbit-spotlight {
-        display: none;
+        display: block;
     }
 
     .reel-wrapper {
-        display: none;
+        display: flex;
     }
 
     .reel-viewport {
@@ -2490,27 +2490,30 @@ img.grayscale-hover:hover,
 
     /* HERO SECTION */
     .passage-container {
-        height: 120vh;
-        /* Shorter on mobile */
+        height: 100vh;
+        /* Single screen on mobile */
     }
 
     .gate-text-layer {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
     }
 
     .gate-logo {
-        font-size: clamp(2.5rem, 10vw, 5rem) !important;
+        font-size: 2rem !important;
+        margin-bottom: 0.5rem;
     }
 
     .gate-theme {
-        font-size: clamp(3rem, 12vw, 7rem) !important;
-        white-space: normal !important;
-        word-break: break-word;
+        font-size: 2.5rem !important;
+        white-space: nowrap !important;
+        word-break: normal;
+        margin-top: 0.25rem;
     }
 
     .gate-text-layer .uppercase {
-        font-size: 0.7rem !important;
-        letter-spacing: 0.1em !important;
+        font-size: 0.55rem !important;
+        letter-spacing: 0.08em !important;
+        margin-bottom: 0.5rem;
     }
 
     /* ABOUT SPLIT SECTION */
@@ -2547,15 +2550,18 @@ img.grayscale-hover:hover,
         grid-template-columns: 1fr !important;
         gap: 2rem;
         min-height: auto;
-        padding: 2rem 0;
+        padding: 2rem 1rem;
+        display: grid !important;
     }
 
     .orbit-spotlight {
         order: 1;
+        display: block !important;
     }
 
     .orbit-sidebar {
         order: 2;
+        display: block !important;
     }
 
     .orbit-image {
@@ -2571,10 +2577,11 @@ img.grayscale-hover:hover,
         font-size: 0.8rem;
     }
 
-    /* REEL (Mobile: Horizontal scroll or simplified) */
+    /* REEL (Mobile: Show all items visible) */
     .reel-wrapper {
         flex-direction: column;
         align-items: flex-start;
+        display: flex !important;
     }
 
     .reel-viewport {
