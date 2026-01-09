@@ -1821,12 +1821,26 @@ img.grayscale-hover:hover,
 
     /* Blueprint/Transmission Section Mobile */
     .blueprint-section {
-        padding: 4rem 1rem;
+        padding: 3rem 0.5rem;
+        overflow: visible;
     }
 
     .blueprint-map-container {
-        aspect-ratio: 4/3;
-        min-height: 300px;
+        aspect-ratio: 1/1;
+        /* Square for better mobile fit */
+        min-height: 280px;
+        max-height: 350px;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .transmission-speaker {
+        top: 10%;
+    }
+
+    .audience-container {
+        transform: scale(0.8);
+        transform-origin: top center;
     }
 
     .speaker-label {
@@ -1835,8 +1849,8 @@ img.grayscale-hover:hover,
     }
 
     .audience-label {
-        font-size: 0.65rem;
-        bottom: 0.5rem;
+        font-size: 0.6rem;
+        bottom: 0.25rem;
     }
 
     /* Manifesto Hero Mobile */
