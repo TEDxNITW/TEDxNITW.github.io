@@ -377,41 +377,57 @@ function update() {
 function renderGateParallax(scrollY) {
     if (!els.gateText) return;
 
-    // CINEMATIC ZOOM EFFECT
-    // Key: Slower zoom that accelerates, like a dolly shot in movies
-    const maxScroll = window.innerHeight * 0.8; // Longer scroll distance for slower zoom
+    // THREE-PHASE ZOOM GATE EFFECT
+    // Phase 1 (0-70%): Text zooms in
+    // Phase 2 (70-90%): Text disappears
+    // Phase 3 (90%+): Content appears
+
+    // Extend scroll range for smoother, more controlled progression
+    const maxScroll = window.innerHeight * 2.5; // Extended from 2 to 2.5 for gentler timing
     const progress = Math.min(scrollY / maxScroll, 1);
 
-    // Cinematic easing: Slow start, dramatic acceleration at the end (like Dolly Zoom)
-    // Using a custom bezier-like curve for that "Hitchcock" feel
-    const easeInExpo = progress === 0 ? 0 : Math.pow(2, 10 * progress - 10);
+    // Cinematic easing: Power curve for weight and momentum
+    const ease = Math.pow(progress, 2.5);
 
-    // Limit max scale to prevent pixelation (quality preservation)
-    // Scale from 1 to 8 - enough for dramatic effect without quality loss
-    const scale = 1 + (easeInExpo * 7);
+    // Scale needs to be large enough to create immersive zoom
+    const scale = 1 + (ease * 30);
 
-    // Add subtle blur at high zoom to simulate depth of field / motion blur
-    // This hides any quality loss and adds cinematic feel
-    const blur = Math.max(0, (progress - 0.7) * 15); // Starts at 70% progress
-
-    // Opacity fades out smoothly in the last 30%
+    // PHASE 1 & 2: Text Opacity
+    // Zoom phase (0-70%): Full opacity
+    // Fade phase (70-90%): Fade to transparent
     let opacity = 1;
     if (progress > 0.7) {
-        opacity = 1 - ((progress - 0.7) / 0.3);
+        const fadeProgress = (progress - 0.7) / 0.2; // 0 to 1 over 70%-90% range
+        opacity = 1 - fadeProgress;
     }
 
-    // Apply transforms with will-change for GPU acceleration
+    // Blur for depth of field effect, starts at 60%
+    const blur = Math.max(0, (progress - 0.6) * 25);
+
+    // Apply transforms with GPU acceleration
     els.gateText.style.willChange = 'transform, opacity, filter';
     els.gateText.style.transform = `translate(-50%, -50%) scale(${scale})`;
     els.gateText.style.opacity = opacity;
     els.gateText.style.filter = blur > 0 ? `blur(${blur}px)` : 'none';
 
-    // Canvas fades out in sync
+    // Canvas fades with text
     if (els.waveCanvas) {
-        els.waveCanvas.style.opacity = 1 - (progress * 1.2); // Slightly faster fade
+        els.waveCanvas.style.opacity = 1 - (progress * 1.2);
     }
 
-    // Reset will-change when animation completes for memory efficiency
+    // PHASE 3: Content appears ONLY after text disappears (90%+)
+    const mainContent = document.getElementById('mainContent');
+    if (mainContent) {
+        if (progress >= 0.9) {
+            // Smooth fade-in for content over final 10%
+            const contentFade = Math.min((progress - 0.9) / 0.1, 1);
+            mainContent.style.opacity = contentFade.toString();
+        } else {
+            mainContent.style.opacity = '0';
+        }
+    }
+
+    // Reset will-change for memory efficiency
     if (progress >= 1 || progress === 0) {
         els.gateText.style.willChange = 'auto';
     }
