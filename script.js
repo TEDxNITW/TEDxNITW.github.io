@@ -377,10 +377,10 @@ function update() {
 function renderGateParallax(scrollY) {
     if (!els.gateText) return;
 
-    // THREE-PHASE ZOOM GATE EFFECT
+    // THREE-PHASE ZOOM GATE EFFECT (Desktop: Full Cinematic / Mobile: Simplified)
     // Phase 1 (0-70%): Text zooms in
     // Phase 2 (70-90%): Text disappears
-    // Phase 3 (90%+): Content appears
+    // Phase 3: Content appears (Mobile: 30%+ / Desktop: 90%+)
 
     // Extend scroll range for smoother, more controlled progression
     const maxScroll = window.innerHeight * 2.5; // Extended from 2 to 2.5 for gentler timing
@@ -415,12 +415,17 @@ function renderGateParallax(scrollY) {
         els.waveCanvas.style.opacity = 1 - (progress * 1.2);
     }
 
-    // PHASE 3: Content appears ONLY after text disappears (90%+)
+    // PHASE 3: Content appears ONLY after text disappears
+    // MOBILE: Show content much earlier (30%) to prevent hiding
+    // DESKTOP: Show content at 90% for full cinematic effect
     const mainContent = document.getElementById('mainContent');
     if (mainContent) {
-        if (progress >= 0.9) {
-            // Smooth fade-in for content over final 10%
-            const contentFade = Math.min((progress - 0.9) / 0.1, 1);
+        const contentThreshold = state.isMobile ? 0.3 : 0.9; // Mobile: 30%, Desktop: 90%
+
+        if (progress >= contentThreshold) {
+            // Smooth fade-in for content
+            const fadeRange = state.isMobile ? 0.2 : 0.1; // Mobile: longer fade (20%), Desktop: 10%
+            const contentFade = Math.min((progress - contentThreshold) / fadeRange, 1);
             mainContent.style.opacity = contentFade.toString();
         } else {
             mainContent.style.opacity = '0';
