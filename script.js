@@ -420,7 +420,7 @@ function renderGateParallax(scrollY) {
     // DESKTOP: Show content at 90% for full cinematic effect
     const mainContent = document.getElementById('mainContent');
     if (mainContent) {
-        const contentThreshold = state.isMobile ? 0.5 : 0.9; // Mobile: 30%, Desktop: 90%
+        const contentThreshold = state.isMobile ? 0.7 : 0.9; // Mobile: 30%, Desktop: 90%
 
         if (progress >= contentThreshold) {
             // Smooth fade-in for content
